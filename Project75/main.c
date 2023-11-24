@@ -4,7 +4,7 @@
 #define MAX_SIZE 20
 
 
-int list[MAX_SIZE];
+//int list[MAX_SIZE];
 int n;
 int move, compare;
 
@@ -38,7 +38,7 @@ void insertion(int list[], int n) {
    
 }
 
-void insertion2(int list[], int n) {
+void insertion2(int list[], int n) { //과정 출력하지 않은 insertion
     int i, j, key;
     move = 0;
     compare = 0;
@@ -63,6 +63,7 @@ int main(void) {
     int move_count = 0;
     int compare_count = 0;
     n = MAX_SIZE;
+    int list[MAX_SIZE];
 
     srand(time(NULL));
     for (i = 0; i < n; i++)
@@ -77,10 +78,11 @@ int main(void) {
     move_count += move;
     compare_count += compare;
 
+
     for (j = 1; j <= 19; j++) {
         for (i = 0; i < n; i++)
             list[i] = rand() % 100;
-
+        insertion2(list, n);
         move_count += move;
         compare_count += compare;
 
