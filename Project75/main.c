@@ -38,21 +38,22 @@ void insertion(int list[], int n) {
    
 }
 
-void insertion2(int list[], int n) { //과정 출력하지 않은 insertion
+void insertion2(int list[], int n) {//과정 출력 생략
     int i, j, key;
     move = 0;
     compare = 0;
 
     for (i = 1; i < n; i++) {
         key = list[i];
+        move += 1;
+        compare += 1;
         for (j = i - 1; j >= 0 && list[j] > key; j--) {
             list[j + 1] = list[j];
             move += 1;
             compare += 1;
         }
         list[j + 1] = key;
-        move += 1;
-        compare += 1;
+
         //print_array(list, n);
     }
 
