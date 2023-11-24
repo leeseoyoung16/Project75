@@ -2,7 +2,7 @@
 #include<stdlib.h>
 #include<time.h>
 #define MAX_SIZE 20
-#define SWAP(x,y,t) ((t)=(x), (x)=(y), (y)=(t))
+
 
 int list[MAX_SIZE];
 int n;
@@ -23,14 +23,15 @@ void insertion(int list[], int n) {
 
     for (i = 1; i < n; i++) {
         key = list[i];
+        move += 1;
+        compare += 1;
         for (j = i - 1; j >= 0 && list[j] > key; j--) {
             list[j + 1] = list[j];
             move += 1;
             compare += 1;
         }
         list[j + 1] = key;
-        move += 1;
-        compare += 1;
+        
         print_array(list, n);
     }
 
@@ -73,9 +74,6 @@ int main(void) {
     printf("Insertion Sort\n");
     insertion(list, n);
 
-    printf("Move Count: %d\n", move);
-    printf("Compare Count: %d\n\n", compare);
-
     move_count += move;
     compare_count += compare;
 
@@ -83,16 +81,8 @@ int main(void) {
         for (i = 0; i < n; i++)
             list[i] = rand() % 100;
 
-        printf("Original list\n");
-        print_array(list, n);
-
-        printf("Insertion Sort\n");
-        insertion2(list, n);
-        print_array(list, n);
-
         move_count += move;
         compare_count += compare;
-        printf("\n");
 
     }
     printf("Average Move Count: %d\n", move_count / 20);
